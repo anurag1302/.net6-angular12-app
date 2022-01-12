@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Repository.ProductRepository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
@@ -6,10 +7,16 @@ namespace API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        [HttpGet]
-        public string GetProducts()
+        private readonly IProductRepository _productRepository;
+        public ProductsController(IProductRepository productRepository)
         {
-            return "List of Products";
+            _productRepository=productRepository;
+        }
+        [HttpGet]
+        public IActionResult GetProducts()
+        {
+            var model = _productRepository.GetProducts();
+            return Ok(model);
         }
 
         [HttpGet("{id}")]
