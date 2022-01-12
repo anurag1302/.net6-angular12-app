@@ -13,16 +13,16 @@ namespace API.Controllers
             _productRepository=productRepository;
         }
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
-            var model = _productRepository.GetProducts();
+            var model = await _productRepository.GetProducts();
             return Ok(model);
         }
 
         [HttpGet("{id}")]
-        public string GetProduct(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
-            return "Single Product with id: " + id;
+            return Ok(await _productRepository.GetProductById(id));
         }
     }
 }

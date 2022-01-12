@@ -1,5 +1,6 @@
 ﻿using API.Data;
 using API.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Repository.ProductRepository
 {
@@ -11,9 +12,15 @@ namespace API.Repository.ProductRepository
         {
             _storeContext = storeContext;
         }
-        public List<Product> GetProducts()
+
+        public async Task<Product> GetProductById(int id)
         {
-            return _storeContext.Products.ToList();
+            return await _storeContext.Products.FindAsync(id);
+        }
+
+        public async Task<List<Product>> GetProducts()
+        {
+            return await _storeContext.Products.ToListAsync();
         }
     }
 }
