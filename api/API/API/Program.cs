@@ -1,5 +1,6 @@
+using Core.Interfaces;
 using Infrastructure.Data;
-using API.Repository.ProductRepository;
+using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

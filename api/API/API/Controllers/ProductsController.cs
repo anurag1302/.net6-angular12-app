@@ -1,4 +1,4 @@
-﻿using API.Repository.ProductRepository;
+﻿using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -15,14 +15,14 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            var model = await _productRepository.GetProducts();
+            var model = await _productRepository.GetProductsAsync();
             return Ok(model);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
-            return Ok(await _productRepository.GetProductById(id));
+            return Ok(await _productRepository.GetProductByIdAsync(id));
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using Infrastructure.Data;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using Core.Interfaces;
 
-namespace API.Repository.ProductRepository
+namespace Infrastructure.Repository
 {
     public class ProductRepository : IProductRepository
     {
@@ -13,14 +14,13 @@ namespace API.Repository.ProductRepository
             _storeContext = storeContext;
         }
 
-        public async Task<Product> GetProductById(int id)
-        {
-            return await _storeContext.Products.FindAsync(id);
-        }
-
-        public async Task<List<Product>> GetProducts()
+        public async Task<List<Product>> GetProductsAsync()
         {
             return await _storeContext.Products.ToListAsync();
+        }
+        public async Task<Product> GetProductByIdAsync(int id)
+        {
+            return await _storeContext.Products.FindAsync(id);
         }
     }
 }
