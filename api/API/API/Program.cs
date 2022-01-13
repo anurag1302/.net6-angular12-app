@@ -1,4 +1,4 @@
-using API.Data;
+using Infrastructure.Data;
 using API.Repository.ProductRepository;
 using Microsoft.EntityFrameworkCore;
 

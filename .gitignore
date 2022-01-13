@@ -6,3 +6,7 @@
 /api/API/API/bin/Debug/net6.0
 /api/API/API/obj
 /api/API/.vs/API
+/api/API/Core/bin/Debug/net6.0
+/api/API/Core/obj
+/api/API/Infrastructure/bin/Debug/net6.0
+/api/API/Infrastructure/obj

@@ -1,4 +1,4 @@
-﻿using API.Entities;
+﻿using Core.Entities;
 
 namespace API.Repository.ProductRepository
 {
