@@ -10,3 +10,4 @@
 /api/API/Core/obj
 /api/API/Infrastructure/bin/Debug/net6.0
 /api/API/Infrastructure/obj
+/client/ssl
